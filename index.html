@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Кирилл — разработчик C# и .NET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<main>
+  <header class="hero">
+    <h1>Кирилл Гурьев</h1>
+    <p class="sub">Разработчик на <b>C#</b> и <b>.NET</b>.</p>
+    <a class="down" href="#eye-sec" aria-label="Прокрутить вниз">вниз<i></i></a>
+  </header>
+
+  <section class="eye-sec" id="eye-sec">
+    <div class="eye-grid">
+      <svg id="eye" viewBox="0 0 520 300" role="img" aria-label="Механический глаз, который следит за курсором">
+        <defs>
+          <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a6192"/><stop offset=".5" stop-color="#262b4a"/><stop offset="1" stop-color="#11142a"/></linearGradient>
+          <linearGradient id="lidT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14172b"/><stop offset="1" stop-color="#6a72a8"/></linearGradient>
+          <linearGradient id="lidB" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#14172b"/><stop offset="1" stop-color="#6a72a8"/></linearGradient>
+          <radialGradient id="ball" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#0d1a2c"/><stop offset="1" stop-color="#02040a"/></radialGradient>
+          <radialGradient id="iris" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e8ffff"/><stop offset=".2" stop-color="#6ff5ff"/><stop offset=".55" stop-color="#0b86b0"/><stop offset="1" stop-color="#05253d"/></radialGradient>
+          <clipPath id="open"><path d="M30 150 Q260 -10 490 150 Q260 310 30 150Z"/></clipPath>
+        </defs>
+        <path fill="url(#plate)" fill-rule="evenodd" stroke="#7a82b8" stroke-width="2"
+          d="M46 6H474Q514 6 514 46V254Q514 294 474 294H46Q6 294 6 254V46Q6 6 46 6Z M30 150 Q260 -10 490 150 Q260 310 30 150Z"/>
+        <path d="M6 104H110L170 58M514 104H410L350 58M80 266H440" fill="none" stroke="#05060f" stroke-opacity=".7" stroke-width="2"/>
+        <g fill="#8d93b8" stroke="#05060f" stroke-width="2"><circle cx="30" cy="30" r="6"/><circle cx="490" cy="30" r="6"/><circle cx="30" cy="270" r="6"/><circle cx="490" cy="270" r="6"/></g>
+        <g clip-path="url(#open)">
+          <rect width="520" height="300" fill="url(#ball)"/>
+          <g id="look">
+            <circle cx="260" cy="150" r="68" fill="url(#iris)"/>
+            <g id="r1"><circle cx="260" cy="150" r="58" fill="none" stroke="#c9ffff" stroke-width="5" stroke-dasharray="7 9" opacity=".8"/></g>
+            <g id="r2"><circle cx="260" cy="150" r="44" fill="none" stroke="#5ff3ff" stroke-width="3" stroke-dasharray="3 6"/></g>
+            <circle id="pupil" cx="260" cy="150" r="20" fill="#02060d" stroke="#bffcff" stroke-width="2"/>
+            <circle cx="260" cy="150" r="68" fill="none" stroke="#021019" stroke-width="4"/>
+          </g>
+          <ellipse cx="190" cy="108" rx="60" ry="12" transform="rotate(-12 190 108)" fill="#fff" opacity=".1"/>
+          <g id="lT"><rect x="0" y="-300" width="520" height="300" fill="url(#lidT)"/><path d="M0 -16H520" stroke="#05060f" stroke-opacity=".6" stroke-width="2"/><path d="M120 -40V0M400 -40V0" stroke="#05060f" stroke-opacity=".5" stroke-width="2"/></g>
+          <g id="lB"><rect x="0" y="0" width="520" height="300" fill="url(#lidB)"/><path d="M0 16H520" stroke="#05060f" stroke-opacity=".6" stroke-width="2"/><path d="M160 0V36M360 0V36" stroke="#05060f" stroke-opacity=".5" stroke-width="2"/></g>
+        </g>
+        <path id="edge" d="M30 150 Q260 -10 490 150 Q260 310 30 150Z" fill="none" stroke="#1fd1c6" stroke-width="2.5"/>
+      </svg>
+      <div class="eye-text">
+        <h2>Всё под наблюдением</h2>
+        <p>Механический глаз следит за курсором и не моргает без причины. Так же внимательно я читаю код и ловлю баги до релиза.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="stack">
+    <div class="wrap">
+      <h2>Чем работаю</h2>
+      <ul class="stack">
+        <li class="main">C#</li><li class="main">.NET</li>
+        <li>ASP.NET Core</li><li>Entity Framework</li><li>C++</li><li>SQL</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <h2>Проекты</h2>
+      <ul class="proj">
+        <li><h3>Название проекта</h3><p>Короткое описание: что делает и зачем.</p><small>C#, .NET</small></li>
+        <li><h3>Название проекта</h3><p>Короткое описание: что делает и зачем.</p><small>C++</small></li>
+        <li><h3>Название проекта</h3><p>Короткое описание: что делает и зачем.</p><small>C#, ASP.NET Core</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="contacts">
+    <div class="wrap">
+      <h2>Связаться</h2>
+      <div class="links">
+        <a href="mailto:you@example.com">you@example.com</a>
+        <a href="https://github.com/">GitHub</a>
+        <a href="https://t.me/">Telegram</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Твоё Имя</footer>
+<script src="script.js"></script>
+</body>
+</html>
