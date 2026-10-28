@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Кирилл — разработчик C# и .NET</title>
+<title>Кирилл Гурьев</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
@@ -11,42 +11,66 @@
 </head>
 <body>
 <canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
 <main>
   <header class="hero">
     <h1>Кирилл Гурьев</h1>
     <p class="sub">Разработчик на <b>C#</b> и <b>.NET</b>.</p>
-    <a class="down" href="#eye-sec" aria-label="Прокрутить вниз">вниз<i></i></a>
+    <div class="launch">
+      <svg id="rocket" viewBox="0 0 60 220" aria-hidden="true">
+        <defs>
+          <linearGradient id="bd" x1="0" x2="1"><stop offset="0" stop-color="#8f95ad"/><stop offset=".3" stop-color="#f6f8ff"/><stop offset=".6" stop-color="#d9deef"/><stop offset="1" stop-color="#666c8c"/></linearGradient>
+          <linearGradient id="bk" x1="0" x2="1"><stop offset="0" stop-color="#05060c"/><stop offset=".35" stop-color="#3a3f55"/><stop offset="1" stop-color="#05060c"/></linearGradient>
+          <linearGradient id="sf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#1a1208" stop-opacity=".85"/></linearGradient>
+        </defs>
+        <path d="M18 168L4 212L9 214L22 184ZM42 168L56 212L51 214L38 184Z" fill="#2b3050" stroke="#0a0c1c" stroke-width=".6"/>
+        <path d="M30 4C38 22 42 44 42 66H18C18 44 22 22 30 4Z" fill="url(#bd)"/>
+        <rect x="18" y="66" width="24" height="128" fill="url(#bd)"/>
+        <rect x="18" y="116" width="24" height="18" fill="url(#bk)"/>
+        <rect x="18" y="150" width="24" height="44" fill="url(#sf)"/>
+        <path d="M18 66H42M18 96H42M18 116H42M18 134H42" stroke="#000" stroke-opacity=".3" stroke-width=".6"/>
+        <circle cx="30" cy="82" r="4" fill="#1fd1c6"/>
+        <path d="M18 120L6 124V133L18 134ZM42 120L54 124V133L42 134Z" fill="#20243a" stroke="#0a0c1c" stroke-width=".6"/>
+        <rect x="20" y="194" width="20" height="8" fill="#14172b"/>
+        <path d="M22 202L19 215H27L26 202ZM27 202L26 216H34L33 202ZM34 202L33 215H41L38 202Z" fill="#3a3f55"/>
+      </svg>
+      <div class="pad"></div>
+      <button id="go" type="button">Запуск к проектам</button>
+    </div>
   </header>
 
   <section class="eye-sec" id="eye-sec">
     <div class="eye-grid">
-      <svg id="eye" viewBox="0 0 520 300" role="img" aria-label="Механический глаз, который следит за курсором">
+      <svg id="eye" viewBox="0 0 400 400" role="img" aria-label="Кибер-глаз, который следит за курсором">
         <defs>
-          <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a6192"/><stop offset=".5" stop-color="#262b4a"/><stop offset="1" stop-color="#11142a"/></linearGradient>
-          <linearGradient id="lidT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14172b"/><stop offset="1" stop-color="#6a72a8"/></linearGradient>
-          <linearGradient id="lidB" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#14172b"/><stop offset="1" stop-color="#6a72a8"/></linearGradient>
-          <radialGradient id="ball" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#0d1a2c"/><stop offset="1" stop-color="#02040a"/></radialGradient>
-          <radialGradient id="iris" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e8ffff"/><stop offset=".2" stop-color="#6ff5ff"/><stop offset=".55" stop-color="#0b86b0"/><stop offset="1" stop-color="#05253d"/></radialGradient>
-          <clipPath id="open"><path d="M30 150 Q260 -10 490 150 Q260 310 30 150Z"/></clipPath>
+          <radialGradient id="shell" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#f3ff9c"/><stop offset=".25" stop-color="#8fe36b"/><stop offset=".5" stop-color="#3f8a96"/><stop offset=".8" stop-color="#2a2352"/><stop offset="1" stop-color="#0c0a1c"/></radialGradient>
+          <radialGradient id="pink" cx="22%" cy="58%" r="45%"><stop offset="0" stop-color="#ff6fb0" stop-opacity=".75"/><stop offset="1" stop-color="#ff6fb0" stop-opacity="0"/></radialGradient>
+          <radialGradient id="teal" cx="78%" cy="82%" r="45%"><stop offset="0" stop-color="#1fe3d0" stop-opacity=".6"/><stop offset="1" stop-color="#1fe3d0" stop-opacity="0"/></radialGradient>
+          <radialGradient id="shade" cx="40%" cy="35%" r="70%"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>
+          <radialGradient id="iris" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#03121c"/><stop offset=".3" stop-color="#0b4f7a"/><stop offset=".45" stop-color="#19c9d8"/><stop offset=".65" stop-color="#3be07a"/><stop offset=".88" stop-color="#c4f23a"/><stop offset="1" stop-color="#4b6a12"/></radialGradient>
+          <clipPath id="sph"><circle cx="200" cy="200" r="170"/></clipPath>
+          <g id="rg" fill="none" stroke-linecap="round"><path d="M40 120Q200 20 360 120"/><path d="M30 290Q200 385 370 290"/><path d="M170 40L180 105M200 30V100M230 40L220 105"/><path d="M62 150Q40 200 62 252M338 150Q360 200 338 252"/></g>
         </defs>
-        <path fill="url(#plate)" fill-rule="evenodd" stroke="#7a82b8" stroke-width="2"
-          d="M46 6H474Q514 6 514 46V254Q514 294 474 294H46Q6 294 6 254V46Q6 6 46 6Z M30 150 Q260 -10 490 150 Q260 310 30 150Z"/>
-        <path d="M6 104H110L170 58M514 104H410L350 58M80 266H440" fill="none" stroke="#05060f" stroke-opacity=".7" stroke-width="2"/>
-        <g fill="#8d93b8" stroke="#05060f" stroke-width="2"><circle cx="30" cy="30" r="6"/><circle cx="490" cy="30" r="6"/><circle cx="30" cy="270" r="6"/><circle cx="490" cy="270" r="6"/></g>
-        <g clip-path="url(#open)">
-          <rect width="520" height="300" fill="url(#ball)"/>
-          <g id="look">
-            <circle cx="260" cy="150" r="68" fill="url(#iris)"/>
-            <g id="r1"><circle cx="260" cy="150" r="58" fill="none" stroke="#c9ffff" stroke-width="5" stroke-dasharray="7 9" opacity=".8"/></g>
-            <g id="r2"><circle cx="260" cy="150" r="44" fill="none" stroke="#5ff3ff" stroke-width="3" stroke-dasharray="3 6"/></g>
-            <circle id="pupil" cx="260" cy="150" r="20" fill="#02060d" stroke="#bffcff" stroke-width="2"/>
-            <circle cx="260" cy="150" r="68" fill="none" stroke="#021019" stroke-width="4"/>
+        <circle cx="200" cy="200" r="170" fill="url(#shell)"/>
+        <circle cx="200" cy="200" r="170" fill="url(#pink)"/>
+        <circle cx="200" cy="200" r="170" fill="url(#teal)"/>
+        <g clip-path="url(#sph)">
+          <g id="plates">
+            <use href="#rg" stroke="#0a0c1c" stroke-opacity=".55" stroke-width="9"/>
+            <use href="#rg" stroke="#fff" stroke-opacity=".35" stroke-width="2" transform="translate(0 6)"/>
           </g>
-          <ellipse cx="190" cy="108" rx="60" ry="12" transform="rotate(-12 190 108)" fill="#fff" opacity=".1"/>
-          <g id="lT"><rect x="0" y="-300" width="520" height="300" fill="url(#lidT)"/><path d="M0 -16H520" stroke="#05060f" stroke-opacity=".6" stroke-width="2"/><path d="M120 -40V0M400 -40V0" stroke="#05060f" stroke-opacity=".5" stroke-width="2"/></g>
-          <g id="lB"><rect x="0" y="0" width="520" height="300" fill="url(#lidB)"/><path d="M0 16H520" stroke="#05060f" stroke-opacity=".6" stroke-width="2"/><path d="M160 0V36M360 0V36" stroke="#05060f" stroke-opacity=".5" stroke-width="2"/></g>
+          <g id="sock">
+            <circle cx="200" cy="200" r="88" fill="#0d1220" stroke="#8a94bd" stroke-width="4"/>
+            <circle cx="200" cy="200" r="66" fill="url(#iris)"/>
+            <g id="r1"><circle cx="200" cy="200" r="54" fill="none" stroke="#eaffd0" stroke-opacity=".5" stroke-width="3" stroke-dasharray="4 8"/></g>
+            <circle id="pupil" cx="200" cy="200" r="24" fill="#02070c"/>
+            <circle id="sh" cx="200" cy="200" r="0" fill="#0d1220"/>
+            <circle cx="214" cy="186" r="7" fill="#fff" opacity=".8"/><circle cx="190" cy="214" r="3" fill="#fff" opacity=".6"/>
+          </g>
+          <circle cx="200" cy="200" r="170" fill="url(#shade)"/>
+          <ellipse cx="140" cy="110" rx="46" ry="22" transform="rotate(-35 140 110)" fill="#fff" opacity=".25"/>
         </g>
-        <path id="edge" d="M30 150 Q260 -10 490 150 Q260 310 30 150Z" fill="none" stroke="#1fd1c6" stroke-width="2.5"/>
+        <circle cx="200" cy="200" r="170" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="2"/>
       </svg>
       <div class="eye-text">
         <h2>Всё под наблюдением</h2>
@@ -57,32 +81,37 @@
 
   <section class="block" id="stack">
     <div class="wrap">
-      <h2>Чем работаю</h2>
+      <h2>С чем работаю</h2>
       <ul class="stack">
         <li class="main">C#</li><li class="main">.NET</li>
-        <li>ASP.NET Core</li><li>Entity Framework</li><li>C++</li><li>SQL</li>
+        <li>ASP.NET Core</li><li>Python</li><li>C++</li><li>SQL</li><li>HTML</li><li>CSS</li><li>Swift</li><li>SwiftUi</li>
       </ul>
     </div>
   </section>
 
-  <section class="block" id="projects">
+  <section class="space" id="projects">
     <div class="wrap">
       <h2>Проекты</h2>
-      <ul class="proj">
-        <li><h3>Название проекта</h3><p>Короткое описание: что делает и зачем.</p><small>C#, .NET</small></li>
-        <li><h3>Название проекта</h3><p>Короткое описание: что делает и зачем.</p><small>C++</small></li>
-        <li><h3>Название проекта</h3><p>Короткое описание: что делает и зачем.</p><small>C#, ASP.NET Core</small></li>
-      </ul>
+      <p class="hint">Каждая звезда - проект. Наведи на неё.</p>
     </div>
+    <div class="field">
+      <svg id="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points=""/></svg>
+      <button class="star" type="button" data-x="14" data-y="62" data-t="Синхронное рисование по локальной сети." data-d="Программа позволяет рисовать одновременно с другом, подключенным к той же сети." data-s="C#, .NET, Avalonia"><i></i><span>Проект 1</span></button>
+      <button class="star" type="button" data-x="32" data-y="26" data-t="Сайт-визитка для логистической компании." data-d="Сайт, предоставляющий контактные данные, перечень услуг и адреса логистической компании Victoria Import." data-s="HTML, CSS"><i></i><span>Проект 2</span></button>
+      <button class="star" type="button" data-x="52" data-y="58" data-t="Рогалик на питоне." data-d="Игра-рогалик с возможностью улучшать персонажа, проходить уровни, выбирать разные типы атаки." data-s="Python"><i></i><span>Проект 3</span></button>
+      <button class="star" type="button" data-x="72" data-y="24" data-t="Игра-парочки."data-d= "Пользователь переворачивает карточки, которые лежат рубашкой вниз и пытается сопоставить изображения." data-s="Swift, SwiftUi"><i></i><span>Проект 4</span></button>
+      <button class="star" type="button" data-x="88" data-y="64" data-t="Telegram-bot для отправки запросов Esp-32." data-d="Телеграм бот отправляет запрос Esp-32 для того, чтобы разливатор напитков налил жидкость." data-s="C#"><i></i><span>Проект 5</span></button>
+    </div>
+    <div class="info" id="info" aria-live="polite"><b>Выбери звезду</b></div>
   </section>
 
   <section class="block" id="contacts">
     <div class="wrap">
       <h2>Связаться</h2>
       <div class="links">
-        <a href="mailto:you@example.com">you@example.com</a>
-        <a href="https://github.com/">GitHub</a>
-        <a href="https://t.me/">Telegram</a>
+        <a href="mailto:kirillgurev467@gmail.com">kirillgurev467@gmail.com</a>
+        <a href="https://github.com/KirillGurIsProgrammer">GitHub</a>
+        <a href="https://t.me/nekiryuha">Telegram</a>
       </div>
     </div>
   </section>
