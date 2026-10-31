@@ -4,7 +4,7 @@
   function rnd(a, b){ return a + Math.random() * (b - a); }
   function gauss(){ return (Math.random() + Math.random() + Math.random() + Math.random() - 2) / .577; }
 
-  /* ================= Небо ================= */
+  /* Небо */
   var sky = document.getElementById('sky'), c = sky.getContext('2d');
   var W, H, dpr, layer, bright = [], shoot = null, nextShoot = 5000, px = 0, py = 0;
 
@@ -155,7 +155,7 @@
   }
   requestAnimationFrame(eyeLoop);
 
-  /* ============ Ракета ============ */
+  /* Ракета */
   var fxc = $('fx'), f = fxc.getContext('2d'), P = [], flying = false;
   function sizeFx(){ fxc.width = innerWidth * dpr; fxc.height = innerHeight * dpr; f.setTransform(dpr, 0, 0, dpr, 0, 0); }
   sizeFx(); addEventListener('resize', sizeFx);
@@ -229,7 +229,7 @@
   }
   go.addEventListener('click', launch);
 
-  /* ============ Проекты-звёзды ============ */
+  /* Проекты-звёзды  */
   var sp = $('projects'), info = $('info'), stars = [].slice.call(document.querySelectorAll('.star')), pts = [];
   stars.forEach(function(s, i){
     s.style.left = s.dataset.x + '%'; s.style.top = s.dataset.y + '%'; s.style.setProperty('--i', i);
@@ -245,4 +245,34 @@
   sp.querySelector('polyline').setAttribute('points', pts.join(' '));
   if ('IntersectionObserver' in window && !reduce) new IntersectionObserver(function(en){ if (en[0].isIntersecting) sp.classList.add('lit'); }, {threshold: .25}).observe(sp);
   else sp.classList.add('lit');
+
+  /*  Входящая передача  */
+  var rad = document.querySelector('.radio'), typed = $('typed'), full = rad.querySelector('.ghost').textContent.trim();
+  function typeIt(){
+    rad.classList.add('live'); var n = 0;
+    (function tick(){
+      typed.textContent = full.slice(0, ++n);
+      if (n < full.length) setTimeout(tick, /[.,:]/.test(full[n - 1]) ? 260 : 28 + Math.random() * 30);
+      else rad.classList.remove('live');
+    })();
+  }
+  if (reduce || !('IntersectionObserver' in window)) typed.textContent = full;
+  else { var io = new IntersectionObserver(function(en){ if (en[0].isIntersecting){ io.disconnect(); typeIt(); } }, {threshold: .5}); io.observe(rad); }
+
+  /* Высотомер  */
+  var alt = document.querySelector('.alt'), rd = $('altRead'), LOGM = Math.log10(384400), mks = [];
+  [['Линия Кармана', 100], ['МКС', 408], ['ГСО', 35786], ['Луна', 384400]].forEach(function(m){
+    var s = document.createElement('span'), em = document.createElement('em');
+    s.className = 'mk'; s.style.bottom = (Math.log10(m[1]) / LOGM * 100) + '%';
+    em.textContent = m[0] + ' · ' + m[1].toLocaleString('ru-RU') + ' км'; s.appendChild(em); alt.appendChild(s); mks.push([s, m[1]]);
+  });
+  function updAlt(){
+    var max = document.documentElement.scrollHeight - innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    var a = p < .002 ? 0 : Math.pow(10, p * LOGM);
+    alt.style.setProperty('--p', p.toFixed(4));
+    rd.textContent = Math.round(a).toLocaleString('ru-RU') + ' км';
+    mks.forEach(function(m){ m[0].classList.toggle('hit', a >= m[1]); });
+  }
+  addEventListener('scroll', updAlt, {passive:true}); addEventListener('resize', updAlt); updAlt();
 })();

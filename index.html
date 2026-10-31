@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Кирилл Гурьев</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><radialGradient id='s' cx='35%' cy='30%' r='80%'><stop offset='0' stop-color='%23f3ff9c'/><stop offset='.4' stop-color='%233f8a96'/><stop offset='1' stop-color='%230c0a1c'/></radialGradient><radialGradient id='i'><stop offset='0' stop-color='%2303121c'/><stop offset='.35' stop-color='%2319c9d8'/><stop offset='.7' stop-color='%233be07a'/><stop offset='1' stop-color='%23c4f23a'/></radialGradient></defs><circle cx='32' cy='32' r='30' fill='url(%23s)'/><circle cx='32' cy='32' r='16' fill='%230d1220'/><circle cx='32' cy='32' r='13' fill='url(%23i)'/><circle cx='32' cy='32' r='5.5' fill='%2302070c'/><circle cx='35' cy='29' r='2' fill='white'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
@@ -79,13 +80,25 @@
     </div>
   </section>
 
+  <section class="block" id="about">
+    <div class="wrap">
+      <h2>Обо мне</h2>
+      <div class="radio">
+        <div class="radio-bar"><span class="dot"></span>ВХОДЯЩАЯ ПЕРЕДАЧА<span class="freq">144.800 МГц</span><span class="sig"><i></i><i></i><i></i><i></i></span></div>
+        <p class="msg"><span class="ghost">Привет, Земля. На связи Кирилл Гурьев. Пишу на C# и .NET, а ещё делаю игры, сайты и Telegram-ботов. Больше всего люблю моменты, когда код оживает: от совместного рисования по сети до разливатора напитков на ESP-32. Проекты ниже, звёзды ждут. Приём.</span><span id="typed"></span></p>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="stack">
     <div class="wrap">
       <h2>С чем работаю</h2>
-      <ul class="stack">
-        <li class="main">C#</li><li class="main">.NET</li>
-        <li>ASP.NET Core</li><li>Python</li><li>C++</li><li>SQL</li><li>HTML</li><li>CSS</li><li>Swift</li><li>SwiftUi</li>
-      </ul>
+      <div class="system" role="img" aria-label="Технологии: C#, .NET, ASP.NET Core, Python, C++, SQL, HTML, CSS, Swift, SwiftUI">
+        <div class="sun">C#</div>
+        <div class="orbit" style="--d:38%;--t:30s;--dir:normal;--rv:reverse"><div class="slot" style="--a:0deg"><div class="planet" style="--h:265;--s:30px"><i></i><span>.NET</span></div></div><div class="slot" style="--a:180deg"><div class="planet" style="--h:200;--s:24px"><i></i><span>ASP.NET Core</span></div></div></div>
+        <div class="orbit" style="--d:64%;--t:48s;--dir:reverse;--rv:normal"><div class="slot" style="--a:40deg"><div class="planet" style="--h:50;--s:28px"><i></i><span>Python</span></div></div><div class="slot" style="--a:160deg"><div class="planet" style="--h:215;--s:26px"><i></i><span>C++</span></div></div><div class="slot" style="--a:280deg"><div class="planet" style="--h:160;--s:22px"><i></i><span>SQL</span></div></div></div>
+        <div class="orbit" style="--d:92%;--t:75s;--dir:normal;--rv:reverse"><div class="slot" style="--a:20deg"><div class="planet" style="--h:18;--s:26px"><i></i><span>HTML</span></div></div><div class="slot" style="--a:110deg"><div class="planet" style="--h:205;--s:22px"><i></i><span>CSS</span></div></div><div class="slot" style="--a:200deg"><div class="planet" style="--h:8;--s:26px"><i></i><span>Swift</span></div></div><div class="slot" style="--a:290deg"><div class="planet" style="--h:330;--s:24px"><i></i><span>SwiftUI</span></div></div></div>
+      </div>
     </div>
   </section>
 
@@ -99,7 +112,7 @@
       <button class="star" type="button" data-x="14" data-y="62" data-t="Синхронное рисование по локальной сети." data-d="Программа позволяет рисовать одновременно с другом, подключенным к той же сети." data-s="C#, .NET, Avalonia"><i></i><span>Проект 1</span></button>
       <button class="star" type="button" data-x="32" data-y="26" data-t="Сайт-визитка для логистической компании." data-d="Сайт, предоставляющий контактные данные, перечень услуг и адреса логистической компании Victoria Import." data-s="HTML, CSS"><i></i><span>Проект 2</span></button>
       <button class="star" type="button" data-x="52" data-y="58" data-t="Рогалик на питоне." data-d="Игра-рогалик с возможностью улучшать персонажа, проходить уровни, выбирать разные типы атаки." data-s="Python"><i></i><span>Проект 3</span></button>
-      <button class="star" type="button" data-x="72" data-y="24" data-t="Игра-парочки."data-d= "Пользователь переворачивает карточки, которые лежат рубашкой вниз и пытается сопоставить изображения." data-s="Swift, SwiftUi"><i></i><span>Проект 4</span></button>
+      <button class="star" type="button" data-x="72" data-y="24" data-t="Игра-парочки." data-d="Пользователь переворачивает карточки, которые лежат рубашкой вниз и пытается сопоставить изображения." data-s="Swift, SwiftUI"><i></i><span>Проект 4</span></button>
       <button class="star" type="button" data-x="88" data-y="64" data-t="Telegram-bot для отправки запросов Esp-32." data-d="Телеграм бот отправляет запрос Esp-32 для того, чтобы разливатор напитков налил жидкость." data-s="C#"><i></i><span>Проект 5</span></button>
     </div>
     <div class="info" id="info" aria-live="polite"><b>Выбери звезду</b></div>
@@ -116,7 +129,8 @@
     </div>
   </section>
 </main>
-<footer>© 2026 Твоё Имя</footer>
+<footer>© 2026 Кирилл Гурьев</footer>
+<aside class="alt" aria-hidden="true"><div class="rd"><small>высота</small><b id="altRead">0 км</b></div><div class="track"></div><div class="fill"></div><i class="dot"></i></aside>
 <script src="script.js"></script>
 </body>
 </html>

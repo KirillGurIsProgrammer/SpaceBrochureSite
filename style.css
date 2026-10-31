@@ -87,3 +87,50 @@ footer{position:relative;z-index:1;color:var(--mute);text-align:center;padding:2
 .info small{color:var(--teal)}
 
 h2{text-shadow:0 0 24px rgba(130,140,255,.45)}
+
+/* Обо мне: входящая передача */
+.radio{border:1px solid rgba(31,209,198,.35);border-radius:14px;background:rgba(6,10,24,.55);backdrop-filter:blur(6px);box-shadow:0 0 30px rgba(31,209,198,.12),inset 0 0 40px rgba(31,209,198,.06);overflow:hidden}
+.radio-bar{display:flex;align-items:center;gap:.7rem;padding:.6rem 1rem;font:500 .7rem var(--display);letter-spacing:.12em;color:var(--teal);border-bottom:1px solid rgba(31,209,198,.25);background:rgba(31,209,198,.06)}
+.radio-bar .dot{width:8px;height:8px;border-radius:50%;background:#ff4d6d;box-shadow:0 0 10px #ff4d6d;animation:blink 1.2s steps(2) infinite}
+.freq{margin-left:auto;color:var(--mute)}
+.sig{display:flex;gap:2px;align-items:flex-end;height:14px}
+.sig i{width:3px;height:30%;background:var(--teal);border-radius:1px}
+.live .sig i{animation:eq .5s ease-in-out infinite alternate}
+.sig i:nth-child(2){animation-delay:-.15s}.sig i:nth-child(3){animation-delay:-.3s}.sig i:nth-child(4){animation-delay:-.45s}
+@keyframes eq{to{height:100%}}
+@keyframes blink{50%{opacity:0}}
+.msg{position:relative;margin:0;padding:1.4rem 1.2rem 1.6rem}
+.ghost{display:block;visibility:hidden}
+#typed{position:absolute;left:1.2rem;right:1.2rem;top:1.4rem;color:#d6fff9}
+#typed::after{content:"\25AE";color:var(--teal);animation:blink 1s steps(2) infinite}
+
+/* Технологии: планеты на орбитах */
+.system{position:relative;width:min(100%,640px);aspect-ratio:1;margin:0 auto}
+.sun{position:absolute;left:50%;top:50%;width:17%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;display:grid;place-content:center;font:500 clamp(1rem,3vw,1.6rem) var(--display);color:#2a1300;
+  background:radial-gradient(circle at 35% 30%,#fff6c8,#ffc94a 45%,#ff8a1f 80%);box-shadow:0 0 40px 10px rgba(255,170,60,.45),0 0 120px 40px rgba(255,120,40,.2);animation:pulse 4s ease-in-out infinite alternate}
+@keyframes pulse{to{box-shadow:0 0 56px 16px rgba(255,170,60,.6),0 0 150px 56px rgba(255,120,40,.28)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orbit{position:absolute;left:50%;top:50%;width:var(--d);aspect-ratio:1;translate:-50% -50%;border:1px dashed rgba(160,175,255,.25);border-radius:50%;animation:spin var(--t) linear infinite var(--dir)}
+.slot{position:absolute;inset:0;rotate:var(--a)}
+.planet{position:absolute;left:50%;top:0;translate:-50% -50%;width:var(--s);aspect-ratio:1;rotate:calc(var(--a)*-1);animation:spin var(--t) linear infinite var(--rv)}
+.planet::after{content:"";position:absolute;inset:-12px}
+.planet i{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 32% 30%,hsl(var(--h) 95% 80%),hsl(var(--h) 70% 42%) 60%,hsl(var(--h) 60% 14%));box-shadow:0 0 14px hsl(var(--h) 90% 55%/.55);transition:transform .25s,box-shadow .25s}
+.planet span{position:absolute;top:100%;left:50%;translate:-50% 0;margin-top:.3rem;font-size:.78rem;white-space:nowrap;color:var(--mute);text-shadow:0 0 6px #000;transition:color .25s}
+.planet:hover i{transform:scale(1.4);box-shadow:0 0 28px hsl(var(--h) 95% 60%/.9)}
+.planet:hover span{color:var(--text)}
+.system:hover .orbit,.system:hover .planet{animation-play-state:paused}
+@media (max-width:520px){.planet{width:calc(var(--s)*.75)}.planet span{font-size:.62rem}}
+
+/* Высотомер */
+.alt{position:fixed;right:max(14px,env(safe-area-inset-right,0px));top:50%;translate:0 -50%;height:50vh;width:2px;z-index:30;pointer-events:none}
+.alt .track{position:absolute;inset:0;background:rgba(160,175,255,.22);border-radius:2px}
+.alt .fill{position:absolute;left:0;right:0;bottom:0;height:calc(var(--p,0)*100%);background:linear-gradient(0deg,var(--teal),#8f7bff);border-radius:2px;box-shadow:0 0 8px var(--teal)}
+.alt .dot{position:absolute;left:50%;bottom:calc(var(--p,0)*100%);width:10px;height:10px;translate:-50% 50%;border-radius:50%;background:#fff;box-shadow:0 0 12px 3px var(--teal)}
+.alt .rd{position:absolute;right:0;bottom:100%;margin-bottom:.9rem;text-align:right;white-space:nowrap}
+.alt .rd b{display:block;font:500 .85rem var(--display);text-shadow:0 0 8px #000}
+.alt .rd small{font-size:.65rem;color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
+.mk{position:absolute;right:-4px;width:10px;height:1px;background:rgba(190,200,255,.5)}
+.mk em{position:absolute;right:16px;top:50%;translate:0 -50%;font:normal .65rem var(--body);color:var(--mute);white-space:nowrap;opacity:.7;text-shadow:0 0 6px #000}
+.mk.hit{background:var(--teal)}.mk.hit em{color:var(--teal);opacity:1}
+@media (max-width:700px){.mk em{display:none}.alt{height:44vh}}
+@media (prefers-reduced-motion:reduce){.radio-bar .dot,#typed::after,.live .sig i,.sun,.orbit,.planet{animation:none}}
